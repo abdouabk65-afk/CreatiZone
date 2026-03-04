@@ -5,22 +5,24 @@
 foreach (['Comment', 'Submission', 'CommentRepository', 'CommentController'] as $class) {
     require_once __DIR__ . "/classes/{$class}.php";
 }
-require_once('login_signup.php')
+require_once('login_signup.php');
 CommentRepository::init();
 
 // Défi de démonstration
 $submission = new Submission(
     id:          1,
     title:       'Créer une API REST avec authentification JWT',
-    author:      $_post['nom'],
+   author:       $_POST['nom'] ?? 'Anonymous',
     category:    'Défi #12',
     views:       142,
     likes:       28,
     submittedAt: new DateTime('2026-02-24')
 );
-
-$controller = new CommentController(submissionId: 1);
-$controller->handle(); // gère les requêtes AJAX (add / delete / like)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    $controller = new CommentController(submissionId: 1);
+    $controller->handle()// Handle AJAX here (add/delete/like)
+}
+;
 
 $comments  = $controller->getComments();
 $canDelete = true; // En prod : vérifier si c'est l'auteur ou un admin
@@ -443,13 +445,7 @@ foreach ($comments as $comment) {
     $stmt->bindParam(':content', $content, PDO::PARAM_STR);
     $stmt->bindParam(':submissionid', $submissionid, PDO::PARAM_INT);
 } 
-  // Exécution
-  if ($stmt->execute()) {
-        echo "<script>alert('Insert successful!');</script>";
-    } else {
-        echo "Erreur lors de l'insertion.";
-    }
 
-?>
+  
 </body>
 </html>
