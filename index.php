@@ -12,7 +12,7 @@ CommentRepository::init();
 $submission = new Submission(
     id:          1,
     title:       'Créer une API REST avec authentification JWT',
-    author:      $user['username'],
+    author:      $_post['nom'],
     category:    'Défi #12',
     views:       142,
     likes:       28,
