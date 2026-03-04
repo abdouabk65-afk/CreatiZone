@@ -5,14 +5,14 @@
 foreach (['Comment', 'Submission', 'CommentRepository', 'CommentController'] as $class) {
     require_once __DIR__ . "/classes/{$class}.php";
 }
-requir_once('login_signup.php')
+require_once('login_signup.php')
 CommentRepository::init();
 
 // Défi de démonstration
 $submission = new Submission(
     id:          1,
     title:       'Créer une API REST avec authentification JWT',
-    author:      $user,
+    author:      $user['username'],
     category:    'Défi #12',
     views:       142,
     likes:       28,
