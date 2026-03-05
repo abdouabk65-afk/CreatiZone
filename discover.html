@@ -259,546 +259,233 @@
       color: var(--c1);
     }
 
-    /* ════════════════════════════════════════
-       🏅 SYSTÈME DE BADGES
-    ════════════════════════════════════════ */
-    .badges-section {
-      margin-top: .75rem;
-      position: relative;
-    }
+    /* ════ BADGES ════ */
+    .badges-section { margin-top: .75rem; position: relative; }
     .badges-label {
-      font-size: .68rem;
-      color: var(--c10);
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      margin-bottom: .55rem;
+      font-size: .68rem; color: var(--c10);
+      letter-spacing: .05em; text-transform: uppercase; margin-bottom: .55rem;
     }
-    .badges-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: .4rem;
-    }
-    .badge-item {
-      position: relative;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: default;
-    }
+    .badges-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }
+    .badge-item { position: relative; display: inline-flex; flex-direction: column; align-items: center; cursor: default; }
     .badge-icon-wrap {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      border: 2px solid rgba(255,255,255,.10);
-      transition: transform .2s, box-shadow .2s;
-      position: relative;
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; border: 2px solid rgba(255,255,255,.10);
+      transition: transform .2s, box-shadow .2s; position: relative;
     }
-    .badge-icon-wrap:hover {
-      transform: scale(1.18) translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0,0,0,.25);
-    }
-    .badge-icon-wrap.locked {
-      filter: grayscale(1);
-      opacity: .35;
-    }
-    /* Couleurs par type */
+    .badge-icon-wrap:hover { transform: scale(1.18) translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+    .badge-icon-wrap.locked { filter: grayscale(1); opacity: .35; }
     .badge-gold   { background: linear-gradient(135deg, #f5c842 0%, #c8960c 100%); }
     .badge-silver { background: linear-gradient(135deg, #c0c0c0 0%, #8a8a8a 100%); }
     .badge-green  { background: linear-gradient(135deg, #52d17a 0%, #1a9e46 100%); }
     .badge-blue   { background: linear-gradient(135deg, #5ab4f5 0%, #1a6fc4 100%); }
     .badge-purple { background: linear-gradient(135deg, #c084f0 0%, #7c28c8 100%); }
     .badge-orange { background: linear-gradient(135deg, #ff9a3c 0%, #d85a00 100%); }
-
-    /* Tooltip badge */
     .badge-tooltip {
-      position: absolute;
-      bottom: calc(100% + 7px);
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--c7);
-      color: var(--c2);
-      font-size: .68rem;
-      white-space: nowrap;
-      padding: .3em .65em;
-      border-radius: 8px;
-      pointer-events: none;
-      opacity: 0;
+      position: absolute; bottom: calc(100% + 7px); left: 50%;
+      transform: translateX(-50%); background: var(--c7); color: var(--c2);
+      font-size: .68rem; white-space: nowrap; padding: .3em .65em;
+      border-radius: 8px; pointer-events: none; opacity: 0;
       transition: opacity .18s, transform .18s;
-      transform: translateX(-50%) translateY(4px);
-      z-index: 99;
+      transform: translateX(-50%) translateY(4px); z-index: 99;
     }
     .badge-tooltip::after {
-      content: "";
-      position: absolute;
-      top: 100%; left: 50%;
-      transform: translateX(-50%);
-      border: 5px solid transparent;
+      content: ""; position: absolute; top: 100%; left: 50%;
+      transform: translateX(-50%); border: 5px solid transparent;
       border-top-color: var(--c7);
     }
-    .badge-item:hover .badge-tooltip {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    /* Badge "nouveau" ring animation */
+    .badge-item:hover .badge-tooltip { opacity: 1; transform: translateX(-50%) translateY(0); }
     @keyframes badgePulse {
       0%   { box-shadow: 0 0 0 0   rgba(245,200,66,.55); }
       70%  { box-shadow: 0 0 0 8px rgba(245,200,66,.0); }
       100% { box-shadow: 0 0 0 0   rgba(245,200,66,.0); }
     }
-    .badge-new .badge-icon-wrap {
-      animation: badgePulse 2s infinite;
-    }
+    .badge-new .badge-icon-wrap { animation: badgePulse 2s infinite; }
 
-    /* ── Bloc badges sidebar (hors profile card) ── */
     .badge-sidebar-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-soft);
-      border-radius: 20px;
-      padding: 1rem 1rem .85rem;
+      background: var(--bg-card); border: 1px solid var(--border-soft);
+      border-radius: 20px; padding: 1rem 1rem .85rem;
       box-shadow: 0 2px 20px rgba(15,42,29,.05);
     }
     .badge-sidebar-title {
-      font-size: .85rem;
-      font-family: 'DM Serif Display', serif;
-      color: var(--text-dark);
-      margin-bottom: .6rem;
+      font-size: .85rem; font-family: 'DM Serif Display', serif;
+      color: var(--text-dark); margin-bottom: .6rem;
     }
     .badge-sidebar-list .badge-item-row {
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      padding: .45rem .5rem;
-      border-radius: 12px;
-      transition: background .2s;
-      cursor: default;
+      display: flex; align-items: center; gap: .65rem;
+      padding: .45rem .5rem; border-radius: 12px;
+      transition: background .2s; cursor: default;
     }
-    .badge-sidebar-list .badge-item-row:hover {
-      background: var(--bg-input);
-    }
+    .badge-sidebar-list .badge-item-row:hover { background: var(--bg-input); }
     .badge-small-icon {
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .95rem;
-      flex-shrink: 0;
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem; flex-shrink: 0;
     }
-    .badge-info-name {
-      font-size: .8rem;
-      font-weight: 600;
-      color: var(--text-dark);
-      line-height: 1.2;
-    }
-    .badge-info-desc {
-      font-size: .71rem;
-      color: var(--text-muted);
-    }
+    .badge-info-name { font-size: .8rem; font-weight: 600; color: var(--text-dark); line-height: 1.2; }
+    .badge-info-desc { font-size: .71rem; color: var(--text-muted); }
     .badge-locked-tag {
-      margin-left: auto;
-      font-size: .68rem;
-      color: var(--text-light);
-      background: var(--bg-input);
-      border: 1px solid var(--border-soft);
-      padding: .15em .5em;
-      border-radius: 20px;
+      margin-left: auto; font-size: .68rem; color: var(--text-light);
+      background: var(--bg-input); border: 1px solid var(--border-soft);
+      padding: .15em .5em; border-radius: 20px;
     }
     .badge-earned-tag {
-      margin-left: auto;
-      font-size: .68rem;
-      color: #1a9e46;
-      background: #edfbf2;
-      border: 1px solid #a8eec1;
-      padding: .15em .5em;
-      border-radius: 20px;
+      margin-left: auto; font-size: .68rem; color: #1a9e46;
+      background: #edfbf2; border: 1px solid #a8eec1;
+      padding: .15em .5em; border-radius: 20px;
     }
     .xp-bar-wrap {
-      background: var(--bg-input);
-      border-radius: 20px;
-      height: 6px;
-      margin-top: .55rem;
-      overflow: hidden;
-      border: 1px solid var(--border-soft);
+      background: var(--bg-input); border-radius: 20px; height: 6px;
+      margin-top: .55rem; overflow: hidden; border: 1px solid var(--border-soft);
     }
     .xp-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--c5), var(--c8));
-      border-radius: 20px;
-      transition: width .8s cubic-bezier(.34,1.56,.64,1);
+      height: 100%; background: linear-gradient(90deg, var(--c5), var(--c8));
+      border-radius: 20px; transition: width .8s cubic-bezier(.34,1.56,.64,1);
     }
     .xp-label {
-      font-size: .7rem;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      margin-top: .3rem;
+      font-size: .7rem; color: var(--text-muted);
+      display: flex; justify-content: space-between; margin-top: .3rem;
     }
 
-    /* ════════════════════════════════════════
-       🔔 NOTIFICATIONS AJAX
-    ════════════════════════════════════════ */
-
-    /* Bouton cloche dans le header */
+    /* ════ NOTIFICATIONS ════ */
     .btn-notif {
-      position: relative;
-      background: var(--bg-input);
-      border: 1.5px solid var(--border-med);
-      color: var(--text-muted);
-      border-radius: 12px;
-      padding: .5rem .75rem;
-      font-size: 1.05rem;
-      line-height: 1;
-      transition: all .2s;
-      cursor: pointer;
+      position: relative; background: var(--bg-input);
+      border: 1.5px solid var(--border-med); color: var(--text-muted);
+      border-radius: 12px; padding: .5rem .75rem; font-size: 1.05rem;
+      line-height: 1; transition: all .2s; cursor: pointer;
     }
-    .btn-notif:hover {
-      background: var(--c7);
-      border-color: var(--c7);
-      color: var(--c2);
-    }
-    .btn-notif .notif-dot {
-      position: absolute;
-      top: 6px; right: 7px;
-      width: 8px; height: 8px;
-      background: #e74c3c;
-      border-radius: 50%;
-      border: 1.5px solid white;
-      display: none;
-    }
+    .btn-notif:hover { background: var(--c7); border-color: var(--c7); color: var(--c2); }
     .btn-notif .notif-count {
-      position: absolute;
-      top: -5px; right: -5px;
-      background: #e74c3c;
-      color: white;
-      font-size: .62rem;
-      font-weight: 700;
-      min-width: 18px;
-      height: 18px;
-      border-radius: 20px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid white;
-      padding: 0 3px;
-      font-family: 'DM Sans', sans-serif;
+      position: absolute; top: -5px; right: -5px;
+      background: #e74c3c; color: white; font-size: .62rem; font-weight: 700;
+      min-width: 18px; height: 18px; border-radius: 20px; display: none;
+      align-items: center; justify-content: center; border: 2px solid white;
+      padding: 0 3px; font-family: 'DM Sans', sans-serif;
     }
     .notif-count.visible { display: inline-flex; }
 
-    /* Panneau notifications */
     .notif-panel {
-      position: fixed;
-      top: 0; right: -380px;
-      width: 360px;
-      height: 100vh;
-      background: var(--bg-card);
-      border-left: 1px solid var(--border-soft);
-      box-shadow: -12px 0 40px rgba(15,42,29,.12);
-      z-index: 1050;
-      display: flex;
-      flex-direction: column;
+      position: fixed; top: 0; right: -380px; width: 360px; height: 100vh;
+      background: var(--bg-card); border-left: 1px solid var(--border-soft);
+      box-shadow: -12px 0 40px rgba(15,42,29,.12); z-index: 1050;
+      display: flex; flex-direction: column;
       transition: right .35s cubic-bezier(.34,1.56,.64,1);
     }
     .notif-panel.open { right: 0; }
-
     .notif-panel-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15,42,29,.18);
-      z-index: 1049;
-      display: none;
-      backdrop-filter: blur(1px);
+      position: fixed; inset: 0; background: rgba(15,42,29,.18);
+      z-index: 1049; display: none; backdrop-filter: blur(1px);
     }
     .notif-panel-overlay.open { display: block; }
-
     .notif-panel-header {
-      padding: 1.1rem 1.2rem .9rem;
-      border-bottom: 1px solid var(--border-soft);
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      flex-shrink: 0;
+      padding: 1.1rem 1.2rem .9rem; border-bottom: 1px solid var(--border-soft);
+      display: flex; align-items: center; gap: .75rem; flex-shrink: 0;
     }
-    .notif-panel-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      color: var(--text-dark);
-      flex: 1;
-    }
-    .notif-panel-actions {
-      display: flex;
-      gap: .4rem;
-    }
+    .notif-panel-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--text-dark); flex: 1; }
+    .notif-panel-actions { display: flex; gap: .4rem; }
     .btn-mark-all {
-      font-size: .75rem;
-      color: var(--accent);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      padding: .2rem .5rem;
-      border-radius: 8px;
-      transition: background .2s;
+      font-size: .75rem; color: var(--accent); background: none; border: none;
+      cursor: pointer; font-family: 'DM Sans', sans-serif; padding: .2rem .5rem;
+      border-radius: 8px; transition: background .2s;
     }
     .btn-mark-all:hover { background: var(--bg-input); }
     .btn-close-notif {
-      background: var(--bg-input);
-      border: 1px solid var(--border-soft);
-      border-radius: 8px;
-      color: var(--text-muted);
-      width: 30px; height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: .9rem;
-      transition: all .2s;
+      background: var(--bg-input); border: 1px solid var(--border-soft);
+      border-radius: 8px; color: var(--text-muted); width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: .9rem; transition: all .2s;
     }
-    .btn-close-notif:hover {
-      background: var(--c7);
-      color: var(--c2);
-      border-color: var(--c7);
-    }
-
-    /* Tabs */
+    .btn-close-notif:hover { background: var(--c7); color: var(--c2); border-color: var(--c7); }
     .notif-tabs {
-      display: flex;
-      gap: .3rem;
-      padding: .7rem 1.2rem .55rem;
-      border-bottom: 1px solid var(--border-soft);
-      flex-shrink: 0;
+      display: flex; gap: .3rem; padding: .7rem 1.2rem .55rem;
+      border-bottom: 1px solid var(--border-soft); flex-shrink: 0;
     }
     .notif-tab {
-      font-size: .8rem;
-      padding: .3rem .75rem;
-      border-radius: 20px;
-      border: 1.5px solid transparent;
-      background: transparent;
-      color: var(--text-muted);
-      font-family: 'DM Sans', sans-serif;
-      cursor: pointer;
-      transition: all .18s;
+      font-size: .8rem; padding: .3rem .75rem; border-radius: 20px;
+      border: 1.5px solid transparent; background: transparent;
+      color: var(--text-muted); font-family: 'DM Sans', sans-serif;
+      cursor: pointer; transition: all .18s;
     }
-    .notif-tab.active {
-      background: var(--c7);
-      color: var(--c2);
-      font-weight: 600;
-      border-color: var(--c7);
-    }
-    .notif-tab:not(.active):hover {
-      background: var(--bg-input);
-      border-color: var(--border-soft);
-      color: var(--text-dark);
-    }
-
-    /* Liste */
-    .notif-list {
-      flex: 1;
-      overflow-y: auto;
-      padding: .5rem .6rem;
-    }
+    .notif-tab.active { background: var(--c7); color: var(--c2); font-weight: 600; border-color: var(--c7); }
+    .notif-tab:not(.active):hover { background: var(--bg-input); border-color: var(--border-soft); color: var(--text-dark); }
+    .notif-list { flex: 1; overflow-y: auto; padding: .5rem .6rem; }
     .notif-list::-webkit-scrollbar { width: 4px; }
     .notif-list::-webkit-scrollbar-thumb { background: var(--c4); border-radius: 10px; }
-
     .notif-item {
-      display: flex;
-      gap: .7rem;
-      align-items: flex-start;
-      padding: .75rem .7rem;
-      border-radius: 14px;
-      cursor: pointer;
-      transition: background .18s;
-      position: relative;
+      display: flex; gap: .7rem; align-items: flex-start;
+      padding: .75rem .7rem; border-radius: 14px; cursor: pointer;
+      transition: background .18s; position: relative;
       animation: notifIn .3s ease both;
     }
-    @keyframes notifIn {
-      from { opacity: 0; transform: translateX(20px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
+    @keyframes notifIn { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
     .notif-item:hover { background: var(--bg-input); }
     .notif-item.unread { background: #f0f8e8; }
     .notif-item.unread:hover { background: #e5f3d8; }
-
     .notif-unread-dot {
-      position: absolute;
-      top: 50%;
-      left: 3px;
-      transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
-      background: var(--c8);
-      border-radius: 50%;
-      display: none;
+      position: absolute; top: 50%; left: 3px; transform: translateY(-50%);
+      width: 6px; height: 6px; background: var(--c8); border-radius: 50%; display: none;
     }
     .notif-item.unread .notif-unread-dot { display: block; }
-
     .notif-avatar {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      font-weight: 700;
-      color: white;
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 700; color: white;
     }
     .notif-body { flex: 1; min-width: 0; }
-    .notif-text {
-      font-size: .81rem;
-      color: var(--text-dark);
-      line-height: 1.45;
-      margin-bottom: .2rem;
-    }
+    .notif-text { font-size: .81rem; color: var(--text-dark); line-height: 1.45; margin-bottom: .2rem; }
     .notif-text strong { color: var(--c8); }
-    .notif-time {
-      font-size: .7rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: .3rem;
-    }
+    .notif-time { font-size: .7rem; color: var(--text-muted); display: flex; align-items: center; gap: .3rem; }
     .notif-type-icon {
-      font-size: .75rem;
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: .25rem;
-      flex-shrink: 0;
+      font-size: .75rem; width: 20px; height: 20px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-right: .25rem; flex-shrink: 0;
     }
-
-    /* Footer */
-    .notif-panel-footer {
-      padding: .8rem 1.2rem;
-      border-top: 1px solid var(--border-soft);
-      flex-shrink: 0;
-    }
-    .notif-ajax-status {
-      font-size: .72rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-    }
+    .notif-panel-footer { padding: .8rem 1.2rem; border-top: 1px solid var(--border-soft); flex-shrink: 0; }
+    .notif-ajax-status { font-size: .72rem; color: var(--text-muted); display: flex; align-items: center; gap: .4rem; }
     .notif-pulse {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #7adb70;
-      animation: livePulse 2s infinite;
-      flex-shrink: 0;
+      width: 7px; height: 7px; border-radius: 50%; background: #7adb70;
+      animation: livePulse 2s infinite; flex-shrink: 0;
     }
-    @keyframes livePulse {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50%      { opacity: .5; transform: scale(.75); }
-    }
-
-    /* Empty notif */
-    .notif-empty {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      color: var(--text-muted);
-    }
+    @keyframes livePulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(.75); } }
+    .notif-empty { text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); }
     .notif-empty i { font-size: 2.2rem; color: var(--c4); display: block; margin-bottom: .5rem; }
 
-    /* ════════════════════════════════════════
-       🎉 TOAST NOTIFICATION
-    ════════════════════════════════════════ */
+    /* ════ TOASTS ════ */
     .toast-stack {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      gap: .6rem;
-      pointer-events: none;
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 2000;
+      display: flex; flex-direction: column; gap: .6rem; pointer-events: none;
     }
     .notif-toast {
-      background: var(--bg-card);
-      border: 1px solid var(--border-soft);
-      border-left: 4px solid var(--c8);
-      border-radius: 14px;
-      padding: .75rem 1rem;
-      min-width: 280px;
-      max-width: 320px;
-      box-shadow: 0 8px 32px rgba(15,42,29,.15);
-      display: flex;
-      gap: .7rem;
-      align-items: flex-start;
-      pointer-events: all;
+      background: var(--bg-card); border: 1px solid var(--border-soft);
+      border-left: 4px solid var(--c8); border-radius: 14px;
+      padding: .75rem 1rem; min-width: 280px; max-width: 320px;
+      box-shadow: 0 8px 32px rgba(15,42,29,.15); display: flex;
+      gap: .7rem; align-items: flex-start; pointer-events: all;
       animation: toastIn .4s cubic-bezier(.34,1.56,.64,1) both;
     }
-    @keyframes toastIn {
-      from { opacity: 0; transform: translateX(60px) scale(.9); }
-      to   { opacity: 1; transform: translateX(0) scale(1); }
-    }
-    @keyframes toastOut {
-      from { opacity: 1; transform: scale(1); }
-      to   { opacity: 0; transform: scale(.9) translateX(30px); }
-    }
-    .notif-toast.removing {
-      animation: toastOut .3s ease both;
-    }
-    .toast-icon {
-      width: 34px; height: 34px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .95rem;
-      flex-shrink: 0;
-    }
+    @keyframes toastIn { from { opacity:0; transform:translateX(60px) scale(.9); } to { opacity:1; transform:translateX(0) scale(1); } }
+    @keyframes toastOut { from { opacity:1; transform:scale(1); } to { opacity:0; transform:scale(.9) translateX(30px); } }
+    .notif-toast.removing { animation: toastOut .3s ease both; }
+    .toast-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .95rem; flex-shrink: 0; }
     .toast-body { flex: 1; min-width: 0; }
     .toast-title { font-size: .8rem; font-weight: 700; color: var(--text-dark); margin-bottom: .1rem; }
     .toast-msg   { font-size: .75rem; color: var(--text-muted); line-height: 1.4; }
-    .toast-close {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: .9rem;
-      line-height: 1;
-      padding: 0 .2rem;
-      margin-top: -.1rem;
-      transition: color .15s;
-    }
+    .toast-close { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: .9rem; line-height: 1; padding: 0 .2rem; margin-top: -.1rem; transition: color .15s; }
     .toast-close:hover { color: var(--text-dark); }
 
-    /* ════════════════════════════════════════
-       BADGES CATALOGUE
-    ════════════════════════════════════════ */
+    /* ════ CARDS ════ */
     .badge-cat {
-      background: var(--bg-input);
-      border: 1px solid var(--border-soft);
-      color: var(--accent);
-      font-size: .70rem;
-      padding: .25em .65em;
-      border-radius: 20px;
-      font-weight: 600;
-      letter-spacing: .02em;
+      background: var(--bg-input); border: 1px solid var(--border-soft);
+      color: var(--accent); font-size: .70rem; padding: .25em .65em;
+      border-radius: 20px; font-weight: 600; letter-spacing: .02em;
     }
     .badge-total {
-      background: var(--bg-input);
-      color: var(--text-muted);
-      font-size: .73rem;
-      border-radius: 20px;
-      padding: .2em .65em;
-      font-weight: 500;
+      background: var(--bg-input); color: var(--text-muted); font-size: .73rem;
+      border-radius: 20px; padding: .2em .65em; font-weight: 500;
     }
-
-    /* ── Challenge Cards ── */
     .challenge-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-soft);
-      border-radius: 18px;
-      height: 100%;
+      background: var(--bg-card); border: 1px solid var(--border-soft);
+      border-radius: 18px; height: 100%;
       transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s, border-color .2s;
       overflow: hidden;
     }
@@ -807,127 +494,98 @@
       box-shadow: 0 16px 40px rgba(15,42,29,.12);
       border-color: var(--border-med);
     }
-    .challenge-cover {
-      height: 88px;
-      position: relative;
-      overflow: hidden;
-    }
-    .challenge-card:nth-child(1) .challenge-cover { background: linear-gradient(135deg, #c8dba8 0%, #aec3b0 100%); }
-    .challenge-card:nth-child(2) .challenge-cover { background: linear-gradient(135deg, #b6c99b 0%, #88976c 100%); }
-    .challenge-card:nth-child(3) .challenge-cover { background: linear-gradient(135deg, #d4e8be 0%, #98a77c 100%); }
-    .challenge-card:nth-child(4) .challenge-cover { background: linear-gradient(135deg, #cfe1b9 0%, #728156 100%); }
-    .challenge-card:nth-child(5) .challenge-cover { background: linear-gradient(135deg, #e3eed4 0%, #aec3b0 100%); }
-    .challenge-card:nth-child(6) .challenge-cover { background: linear-gradient(135deg, #98a77c 0%, #375534 100%); }
+    .challenge-cover { height: 88px; position: relative; overflow: hidden; }
+    .cover-grad-1 { background: linear-gradient(135deg, #c8dba8 0%, #aec3b0 100%); }
+    .cover-grad-2 { background: linear-gradient(135deg, #b6c99b 0%, #88976c 100%); }
+    .cover-grad-3 { background: linear-gradient(135deg, #d4e8be 0%, #98a77c 100%); }
+    .cover-grad-4 { background: linear-gradient(135deg, #cfe1b9 0%, #728156 100%); }
+    .cover-grad-5 { background: linear-gradient(135deg, #e3eed4 0%, #aec3b0 100%); }
+    .cover-grad-6 { background: linear-gradient(135deg, #98a77c 0%, #375534 100%); }
     .challenge-cover::after {
-      content: "";
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        -45deg, transparent, transparent 10px,
-        rgba(255,255,255,.06) 10px, rgba(255,255,255,.06) 11px
-      );
+      content: ""; position: absolute; inset: 0;
+      background: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255,255,255,.06) 10px, rgba(255,255,255,.06) 11px);
     }
-    .challenge-cover .cover-icon {
-      position: absolute;
-      bottom: 10px; right: 14px;
-      font-size: 1.8rem;
-      opacity: .30;
-      color: var(--c7);
-    }
-
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1rem;
-      color: var(--text-dark);
-    }
+    .challenge-cover .cover-icon { position: absolute; bottom: 10px; right: 14px; font-size: 1.8rem; opacity: .30; color: var(--c7); }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--text-dark); }
     .btn-voir {
-      border: 1.5px solid var(--border-med);
-      background: transparent;
-      color: var(--text-muted);
-      border-radius: 10px;
-      font-size: .79rem;
-      padding: .3rem .8rem;
-      font-family: 'DM Sans', sans-serif;
-      transition: all .2s;
+      border: 1.5px solid var(--border-med); background: transparent;
+      color: var(--text-muted); border-radius: 10px; font-size: .79rem;
+      padding: .3rem .8rem; font-family: 'DM Sans', sans-serif; transition: all .2s;
     }
-    .btn-voir:hover {
-      background: var(--c7);
-      border-color: var(--c7);
-      color: var(--c2);
-      transform: scale(1.05);
+    .btn-voir:hover { background: var(--c7); border-color: var(--c7); color: var(--c2); transform: scale(1.05); }
+
+    /* ── Vote stars ── */
+    .star-rating { display: inline-flex; gap: .15rem; }
+    .star-rating .star {
+      font-size: .9rem; cursor: pointer; color: var(--c4);
+      transition: color .15s, transform .15s;
     }
+    .star-rating .star:hover,
+    .star-rating .star.active { color: #f5c842; transform: scale(1.2); }
+    .star-rating .star.voted { color: #f5c842; cursor: default; }
+
+    .vote-area {
+      display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+      margin-top: .4rem;
+    }
+    .vote-avg {
+      font-size: .75rem; color: var(--text-muted);
+      background: var(--bg-input); border-radius: 20px;
+      padding: .15em .6em; border: 1px solid var(--border-soft);
+    }
+    .vote-spinner { display: none; }
+    .vote-spinner.active { display: inline-block; }
+
     .empty-state {
-      background: var(--bg-input);
-      border: 1.5px dashed var(--border-med);
-      border-radius: 16px;
-      color: var(--text-muted);
+      background: var(--bg-input); border: 1.5px dashed var(--border-med);
+      border-radius: 16px; color: var(--text-muted);
     }
     .hub-badge {
-      background: var(--c7);
-      color: var(--c3);
-      font-size: .72rem;
-      border-radius: 20px;
-      padding: .22em .8em;
-      font-weight: 600;
-      letter-spacing: .04em;
+      background: var(--c7); color: var(--c3); font-size: .72rem;
+      border-radius: 20px; padding: .22em .8em; font-weight: 600; letter-spacing: .04em;
     }
-    kbd {
-      background: var(--bg-input);
-      border: 1px solid var(--border-med);
-      color: var(--text-muted);
-      border-radius: 6px;
-      font-size: .78em;
-      padding: .1em .45em;
-    }
+    kbd { background: var(--bg-input); border: 1px solid var(--border-med); color: var(--text-muted); border-radius: 6px; font-size: .78em; padding: .1em .45em; }
     .muted { color: var(--text-muted); }
     a, button { outline: none; }
     hr.divider { border-color: var(--border-soft); opacity: 1; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
     .box, .profile-card { animation: fadeUp .4s ease both; }
     .challenge-card { animation: fadeUp .35s ease both; }
 
-    @media (max-width: 576px) {
-      .notif-panel { width: 100%; }
+    /* Loading skeleton */
+    .skeleton {
+      background: linear-gradient(90deg, var(--bg-input) 25%, #e8f0df 50%, var(--bg-input) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 8px;
     }
+    @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+    @media (max-width: 576px) { .notif-panel { width: 100%; } }
   </style>
 </head>
 
 <body>
 
-<!-- ════════════════════════════════════════
-     🔔 PANNEAU NOTIFICATIONS (slide-in)
-════════════════════════════════════════ -->
+<!-- ════ PANNEAU NOTIFICATIONS ════ -->
 <div class="notif-panel-overlay" id="notifOverlay" onclick="closeNotifPanel()"></div>
 
 <div class="notif-panel" id="notifPanel" role="dialog" aria-label="Notifications">
-  <!-- En-tête -->
   <div class="notif-panel-header">
     <i class="bi bi-bell" style="color:var(--accent); font-size:1.1rem;"></i>
     <div class="notif-panel-title">Notifications</div>
     <div class="notif-panel-actions">
-      <button class="btn-mark-all" onclick="markAllRead()" title="Tout marquer comme lu">
-        <i class="bi bi-check2-all me-1"></i>Tout lire
-      </button>
-      <button class="btn-close-notif" onclick="closeNotifPanel()">
-        <i class="bi bi-x-lg"></i>
-      </button>
+      <button class="btn-mark-all" onclick="markAllRead()"><i class="bi bi-check2-all me-1"></i>Tout lire</button>
+      <button class="btn-close-notif" onclick="closeNotifPanel()"><i class="bi bi-x-lg"></i></button>
     </div>
   </div>
-
-  <!-- Onglets -->
   <div class="notif-tabs">
-    <button class="notif-tab active" data-tab="all"     onclick="switchTab(this,'all')">Toutes</button>
-    <button class="notif-tab"        data-tab="unread"  onclick="switchTab(this,'unread')">Non lues</button>
-    <button class="notif-tab"        data-tab="badges"  onclick="switchTab(this,'badges')">Badges</button>
+    <button class="notif-tab active" data-tab="all"    onclick="switchTab(this,'all')">Toutes</button>
+    <button class="notif-tab"        data-tab="unread" onclick="switchTab(this,'unread')">Non lues</button>
+    <button class="notif-tab"        data-tab="badges" onclick="switchTab(this,'badges')">Badges</button>
   </div>
-
-  <!-- Liste -->
   <div class="notif-list" id="notifList"></div>
-
-  <!-- Footer statut AJAX -->
   <div class="notif-panel-footer">
     <div class="notif-ajax-status">
       <span class="notif-pulse"></span>
@@ -936,124 +594,100 @@
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     🎉 STACK TOASTS
-════════════════════════════════════════ -->
+<!-- ════ TOASTS ════ -->
 <div class="toast-stack" id="toastStack"></div>
 
-<!-- ════════════════════════════════════════
-     CONTENU PRINCIPAL
-════════════════════════════════════════ -->
+<!-- ════ CONTENU PRINCIPAL ════ -->
 <div class="container py-4">
 
-  <!-- ════ Header ════ -->
+  <!-- Header -->
   <div class="box p-3 mb-3">
     <div class="d-flex flex-column flex-lg-row gap-2 align-items-lg-center justify-content-between">
-
       <div class="d-flex align-items-center gap-2 flex-shrink-0">
-        <h5 class="m-0 serif fw-normal" style="color: var(--c7); font-size:1.25rem;">
-          <i class="bi bi-compass me-1" style="color: var(--accent);"></i>Découvrir
+        <h5 class="m-0 serif fw-normal" style="color:var(--c7);font-size:1.25rem;">
+          <i class="bi bi-compass me-1" style="color:var(--accent);"></i>Découvrir
         </h5>
         <span class="hub-badge">ChallengeHub</span>
       </div>
-
       <div class="d-flex flex-column flex-md-row gap-2 w-100 w-lg-auto align-items-md-center">
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-search"></i></span>
           <input id="searchInput" type="text" class="form-control" placeholder="Rechercher un défi…" />
         </div>
-
         <select id="sortSelect" class="form-select" style="min-width:195px;">
           <option value="popular">Trier : Popularité</option>
           <option value="newest">Trier : Plus récents</option>
           <option value="deadline">Trier : Date limite</option>
         </select>
-
-        <button id="resetBtn" class="btn btn-reset">
-          <i class="bi bi-arrow-counterclockwise me-1"></i>Réinitialiser
-        </button>
-
-        <!-- 🔔 Bouton notifications -->
+        <button id="resetBtn" class="btn btn-reset"><i class="bi bi-arrow-counterclockwise me-1"></i>Réinitialiser</button>
         <button class="btn btn-notif" id="notifBtn" onclick="toggleNotifPanel()" title="Notifications">
           <i class="bi bi-bell"></i>
           <span class="notif-count" id="notifCount">0</span>
         </button>
-
         <button class="btn btn-create" onclick="alert('Page créer un défi (bientôt !)')">
           <i class="bi bi-plus-circle me-1"></i>Créer un défi
         </button>
       </div>
     </div>
-
     <div class="mt-2 small muted" style="font-size:.78rem;">
       Astuce : touche <kbd>/</kbd> pour aller directement sur la recherche · <kbd>N</kbd> pour les notifications.
     </div>
   </div>
 
-  <!-- ════ Contenu principal ════ -->
+  <!-- Body -->
   <div class="row g-3">
 
-    <!-- ── Colonne gauche ── -->
+    <!-- Colonne gauche -->
     <div class="col-12 col-lg-3">
 
       <!-- Profil -->
       <div class="profile-card mb-3">
         <div class="profile-avatar-wrap">
-          <img
-            class="profile-avatar"
-            src="https://img.freepik.com/premium-vector/user-icon-icon_1076610-59410.jpg"
-            alt="Avatar Abdou"
-          />
+          <img class="profile-avatar" src="https://img.freepik.com/premium-vector/user-icon-icon_1076610-59410.jpg" alt="Avatar" />
           <span class="profile-online" title="En ligne"></span>
         </div>
-        <div class="profile-name">Abdou</div>
-        <div class="profile-role">Créateur · Niveau 3 🌿</div>
+        <!-- Rempli dynamiquement via PHP/AJAX -->
+        <div class="profile-name" id="profileName">—</div>
+        <div class="profile-role" id="profileRole">Chargement…</div>
         <hr class="profile-divider" />
         <div class="profile-stats">
           <div>
-            <div class="profile-stat-val">12</div>
+            <div class="profile-stat-val" id="statDefis">—</div>
             <div class="profile-stat-lbl">Défis</div>
           </div>
           <div>
-            <div class="profile-stat-val">84</div>
+            <div class="profile-stat-val" id="statPoints">—</div>
             <div class="profile-stat-lbl">Points</div>
           </div>
           <div>
-            <div class="profile-stat-val">5</div>
+            <div class="profile-stat-val" id="statVictoires">—</div>
             <div class="profile-stat-lbl">Victoires</div>
           </div>
         </div>
-
-        <!-- ── XP Bar ── -->
-        <div style="position:relative; padding: 0 .2rem .1rem;">
+        <div style="position:relative;padding:0 .2rem .1rem;">
           <div class="xp-bar-wrap">
             <div class="xp-bar-fill" id="xpBarFill" style="width:0%"></div>
           </div>
-          <div class="xp-label" style="color:rgba(174,195,176,.7); font-size:.65rem;">
-            <span>Niv. 3</span>
-            <span id="xpText">84 / 120 XP</span>
-            <span>Niv. 4</span>
+          <div class="xp-label" style="color:rgba(174,195,176,.7);font-size:.65rem;">
+            <span id="xpNivCur">Niv. —</span>
+            <span id="xpText">— / — XP</span>
+            <span id="xpNivNext">Niv. —</span>
           </div>
         </div>
-
-        <!-- 🏅 Badges dans le profil -->
         <div class="badges-section">
           <div class="badges-label">Mes badges</div>
           <div class="badges-row" id="profileBadges"></div>
         </div>
-
         <hr class="profile-divider" />
         <button class="btn btn-profile" onclick="alert('Page profil (bientôt !)')">
           <i class="bi bi-person-circle me-1"></i>Voir mon profil
         </button>
       </div>
 
-      <!-- 🏅 Bloc Badges complet -->
+      <!-- Badges -->
       <div class="badge-sidebar-card mb-3">
         <div class="d-flex justify-content-between align-items-center mb-1">
-          <div class="badge-sidebar-title">
-            <i class="bi bi-award me-1" style="color:var(--c5);"></i>Système de badges
-          </div>
+          <div class="badge-sidebar-title"><i class="bi bi-award me-1" style="color:var(--c5);"></i>Système de badges</div>
           <span class="badge-total" id="earnedBadgeCount">0/6</span>
         </div>
         <div class="badge-sidebar-list" id="badgeList"></div>
@@ -1067,19 +701,15 @@
           </div>
           <span class="badge-total" id="totalCount">0</span>
         </div>
-
         <div id="categoriesList" class="d-grid gap-2"></div>
-
         <hr class="divider mt-3" />
-
-        <div class="muted" style="font-size:.73rem; line-height:1.5;">
-          <i class="bi bi-info-circle me-1"></i>
-          Filtrage JS (mock). Connecte PHP/MySQL pour les données réelles.
+        <div class="muted" style="font-size:.73rem;line-height:1.5;">
+          <i class="bi bi-info-circle me-1"></i>Données issues de la base <code>challenge_hub</code>.
         </div>
       </div>
     </div>
 
-    <!-- ── Colonne droite ── -->
+    <!-- Colonne droite -->
     <div class="col-12 col-lg-9">
       <div class="box p-3">
         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -1091,102 +721,88 @@
           </div>
         </div>
 
+        <!-- Stats globales (depuis vote.php?action=stats) -->
+        <div class="row g-2 mb-3" id="statsRow">
+          <div class="col-6 col-md-3">
+            <div class="box p-2 text-center">
+              <div class="serif" style="font-size:1.3rem;color:var(--c7);" id="statTotalUsers"><span class="skeleton d-block" style="height:1.5rem;"></span></div>
+              <div style="font-size:.7rem;color:var(--text-muted);">Utilisateurs</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="box p-2 text-center">
+              <div class="serif" style="font-size:1.3rem;color:var(--c7);" id="statTotalDefis"><span class="skeleton d-block" style="height:1.5rem;"></span></div>
+              <div style="font-size:.7rem;color:var(--text-muted);">Défis</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="box p-2 text-center">
+              <div class="serif" style="font-size:1.3rem;color:var(--c7);" id="statTotalPart"><span class="skeleton d-block" style="height:1.5rem;"></span></div>
+              <div style="font-size:.7rem;color:var(--text-muted);">Participations</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="box p-2 text-center">
+              <div class="serif" style="font-size:1.3rem;color:var(--c7);" id="statAvgScore"><span class="skeleton d-block" style="height:1.5rem;"></span></div>
+              <div style="font-size:.7rem;color:var(--text-muted);">Note moyenne</div>
+            </div>
+          </div>
+        </div>
+
         <div id="grid" class="row g-3"></div>
 
         <div id="emptyState" class="empty-state p-4 text-center mt-3 d-none">
-          <i class="bi bi-search mb-2 d-block" style="font-size:2rem; color:var(--c4);"></i>
+          <i class="bi bi-search mb-2 d-block" style="font-size:2rem;color:var(--c4);"></i>
           <div class="fw-bold" style="color:var(--text-dark);">Aucun résultat trouvé</div>
           <div class="small mt-1 muted">Change le mot-clé ou la catégorie.</div>
         </div>
       </div>
     </div>
   </div>
-</div><!-- /container -->
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 /* ══════════════════════════════════════════════════════
-   📦 DONNÉES
+   ⚙️  CONFIGURATION — adapter selon ton serveur
 ══════════════════════════════════════════════════════ */
-const challenges = [
-  { id:1, title:"Logo minimaliste éco",    description:"Un logo simple + premium. PNG + SVG.",             category:"Design",       createdAt:"2026-02-10", deadline:"2026-03-05", popularity:128, author:"Meriem",  icon:"bi-palette" },
-  { id:2, title:"Affiche cyberpunk",        description:"Affiche néon A3 avec un slogan percutant.",        category:"Illustration", createdAt:"2026-02-20", deadline:"2026-03-12", popularity:210, author:"Yassine", icon:"bi-pen" },
-  { id:3, title:"Mini clip promo 10s",      description:"Vidéo verticale 9:16 pour un événement.",         category:"Vidéo",        createdAt:"2026-01-30", deadline:"2026-03-02", popularity:95,  author:"Sara",    icon:"bi-camera-video" },
-  { id:4, title:"Landing page (1 écran)",   description:"Maquette hero + CTA pour une app mobile.",        category:"UI/UX",        createdAt:"2026-02-25", deadline:"2026-03-20", popularity:156, author:"Omar",    icon:"bi-phone" },
-  { id:5, title:"Stories Instagram (x3)",   description:"3 slides cohérentes pour un lancement produit.",  category:"Social",       createdAt:"2026-02-18", deadline:"2026-03-08", popularity:173, author:"Inès",    icon:"bi-instagram" },
-  { id:6, title:"Icônes (set de 12)",       description:"Icônes ligne pour un dashboard e-commerce.",      category:"Design",       createdAt:"2026-02-03", deadline:"2026-03-18", popularity:82,  author:"Hamza",   icon:"bi-grid-1x2" }
-];
+const API_BASE    = 'vote.php';          // chemin relatif vers vote.php
+const CURRENT_USER_ID = 1;              // ← remplacer par la session PHP réelle
+                                         //   ex: <?= $_SESSION['id_user'] ?>
 
 /* ══════════════════════════════════════════════════════
-   🏅 SYSTÈME DE BADGES
+   🏅 BADGES CATALOGUE (logique front uniquement)
 ══════════════════════════════════════════════════════ */
 const BADGES_CATALOGUE = [
-  {
-    id:"first_challenge", name:"Pionnier",
-    desc:"Créer votre premier défi",
-    icon:"🚀", color:"badge-blue", earned:true, isNew:true,
-    notifText:"Badge <strong>Pionnier</strong> débloqué ! Tu as créé ton premier défi 🚀"
-  },
-  {
-    id:"popular_creator", name:"Populaire",
-    desc:"Obtenir 100+ votes au total",
-    icon:"⭐", color:"badge-gold", earned:true, isNew:false,
-    notifText:"Badge <strong>Populaire</strong> débloqué ! Tu as atteint 100 votes ⭐"
-  },
-  {
-    id:"winner", name:"Vainqueur",
-    desc:"Gagner 5 défis",
-    icon:"🏆", color:"badge-orange", earned:true, isNew:false,
-    notifText:"Badge <strong>Vainqueur</strong> débloqué ! 5 victoires enregistrées 🏆"
-  },
-  {
-    id:"active", name:"Très actif",
-    desc:"Soumettre 10 participations",
-    icon:"🌿", color:"badge-green", earned:false, isNew:false,
-    notifText:"Badge <strong>Très actif</strong> débloqué ! 10 participations soumises 🌿"
-  },
-  {
-    id:"expert", name:"Expert",
-    desc:"Atteindre le niveau 5",
-    icon:"💎", color:"badge-purple", earned:false, isNew:false,
-    notifText:"Badge <strong>Expert</strong> débloqué ! Niveau 5 atteint 💎"
-  },
-  {
-    id:"commenter", name:"Commentateur",
-    desc:"Laisser 20 commentaires",
-    icon:"💬", color:"badge-silver", earned:false, isNew:false,
-    notifText:"Badge <strong>Commentateur</strong> débloqué ! 20 commentaires laissés 💬"
-  }
+  { id:"first_challenge", name:"Pionnier",      desc:"Créer votre premier défi",         icon:"🚀", color:"badge-blue",   earned:true,  isNew:true  },
+  { id:"popular_creator", name:"Populaire",     desc:"Obtenir 100+ votes au total",       icon:"⭐", color:"badge-gold",   earned:true,  isNew:false },
+  { id:"winner",          name:"Vainqueur",     desc:"Gagner 5 défis",                    icon:"🏆", color:"badge-orange", earned:true,  isNew:false },
+  { id:"active",          name:"Très actif",    desc:"Soumettre 10 participations",       icon:"🌿", color:"badge-green",  earned:false, isNew:false },
+  { id:"expert",          name:"Expert",        desc:"Atteindre le niveau 5",             icon:"💎", color:"badge-purple", earned:false, isNew:false },
+  { id:"commenter",       name:"Commentateur",  desc:"Laisser 20 commentaires",           icon:"💬", color:"badge-silver", earned:false, isNew:false }
 ];
 
 function renderBadges() {
-  /* ── Profil badges (petits cercles) ── */
   const wrap = document.getElementById("profileBadges");
   wrap.innerHTML = "";
   BADGES_CATALOGUE.forEach(b => {
     const div = document.createElement("div");
     div.className = "badge-item" + (b.isNew && b.earned ? " badge-new" : "");
     div.innerHTML = `
-      <div class="badge-icon-wrap ${b.color}${b.earned ? "" : " locked"}">
-        <span>${b.icon}</span>
-      </div>
+      <div class="badge-icon-wrap ${b.color}${b.earned ? "" : " locked"}"><span>${b.icon}</span></div>
       <div class="badge-tooltip">${b.name}${b.earned ? "" : " (verrouillé)"}</div>`;
     wrap.appendChild(div);
   });
 
-  /* ── Sidebar badge list ── */
   const list = document.getElementById("badgeList");
   list.innerHTML = "";
   const earned = BADGES_CATALOGUE.filter(b => b.earned).length;
   document.getElementById("earnedBadgeCount").textContent = earned + "/" + BADGES_CATALOGUE.length;
-
   BADGES_CATALOGUE.forEach(b => {
     const row = document.createElement("div");
     row.className = "badge-item-row";
     row.innerHTML = `
-      <div class="badge-small-icon ${b.color}${b.earned ? "" : " locked"}" style="${b.earned ? "" : "filter:grayscale(1);opacity:.35;"}">
-        <span>${b.icon}</span>
-      </div>
+      <div class="badge-small-icon ${b.color}${b.earned ? "" : ""}" style="${b.earned ? "" : "filter:grayscale(1);opacity:.35;"}"><span>${b.icon}</span></div>
       <div class="badge-info">
         <div class="badge-info-name">${b.name}</div>
         <div class="badge-info-desc">${b.desc}</div>
@@ -1196,244 +812,193 @@ function renderBadges() {
         : `<span class="badge-locked-tag"><i class="bi bi-lock me-1"></i>Verrouillé</span>`}`;
     list.appendChild(row);
   });
-
-  /* ── XP bar ── */
-  setTimeout(() => {
-    document.getElementById("xpBarFill").style.width = "70%"; // 84/120
-  }, 300);
 }
 
 /* ══════════════════════════════════════════════════════
-   🔔 NOTIFICATIONS AJAX
+   📊 STATS GLOBALES  → vote.php?action=stats
 ══════════════════════════════════════════════════════ */
-let notifications = [
-  {
-    id:1, type:"vote", unread:true,
-    text:"<strong>Yassine</strong> a voté pour ta participation sur <strong>Affiche cyberpunk</strong>",
-    time:"Il y a 2 min", avatar:"YA", avatarColor:"#375534"
-  },
-  {
-    id:2, type:"comment", unread:true,
-    text:"<strong>Sara</strong> a commenté ta participation : « Super travail ! »",
-    time:"Il y a 8 min", avatar:"SA", avatarColor:"#6b9071"
-  },
-  {
-    id:3, type:"badge", unread:true,
-    text:"🏅 Tu as débloqué le badge <strong>Pionnier</strong> pour avoir créé ton premier défi !",
-    time:"Il y a 15 min", avatar:"🏅", avatarColor:"#c8960c"
-  },
-  {
-    id:4, type:"challenge", unread:false,
-    text:"Nouveau défi publié par <strong>Omar</strong> : <strong>Landing page (1 écran)</strong>",
-    time:"Il y a 30 min", avatar:"OM", avatarColor:"#88976c"
-  },
-  {
-    id:5, type:"vote", unread:false,
-    text:"<strong>Inès</strong> a voté pour ton défi <strong>Logo minimaliste éco</strong>",
-    time:"Il y a 1h", avatar:"IN", avatarColor:"#98a77c"
+async function loadStats() {
+  try {
+    const res  = await fetch(`${API_BASE}?action=stats`);
+    const data = await res.json();
+    document.getElementById("statTotalUsers").textContent = data.total_users        ?? "—";
+    document.getElementById("statTotalDefis").textContent = data.total_defis        ?? "—";
+    document.getElementById("statTotalPart").textContent  = data.total_participations ?? "—";
+    document.getElementById("statAvgScore").textContent   = data.avg_score ? data.avg_score + " ⭐" : "—";
+  } catch(e) {
+    console.warn("Stats non disponibles (PHP requis) :", e.message);
+    // Fallback valeurs démo
+    document.getElementById("statTotalUsers").textContent = "3";
+    document.getElementById("statTotalDefis").textContent = "3";
+    document.getElementById("statTotalPart").textContent  = "3";
+    document.getElementById("statAvgScore").textContent   = "4.2 ⭐";
   }
-];
-
-let currentTab = "all";
-let notifPanelOpen = false;
-let nextNotifId = 100;
-
-/* Types d'icônes */
-const typeStyle = {
-  vote:      { icon:"bi-hand-thumbs-up-fill", bg:"#e8f4ff", color:"#1a6fc4" },
-  comment:   { icon:"bi-chat-dots-fill",      bg:"#f0f8e8", color:"#375534" },
-  badge:     { icon:"bi-award-fill",          bg:"#fffae8", color:"#c8960c" },
-  challenge: { icon:"bi-trophy-fill",         bg:"#f8eeff", color:"#7c28c8" }
-};
-
-/* Faux "serveur" : nouvelles notifications aléatoires toutes les 18s */
-const fakeNewNotifs = [
-  { type:"vote",    text:"<strong>Hamza</strong> a voté pour ta participation sur <strong>Mini clip promo 10s</strong>", avatar:"HA", avatarColor:"#375534" },
-  { type:"comment", text:"<strong>Meriem</strong> a répondu à ton commentaire : « Bravo, continue ! »",                avatar:"ME", avatarColor:"#6b9071" },
-  { type:"badge",   text:"🎖️ Tu approches du badge <strong>Très actif</strong> (8/10 participations) !",              avatar:"🎖️", avatarColor:"#c8960c" },
-  { type:"vote",    text:"<strong>Omar</strong> a aimé ta participation sur <strong>Stories Instagram (x3)</strong>",   avatar:"OM", avatarColor:"#88976c" },
-  { type:"challenge",text:"<strong>Sara</strong> vient de publier un nouveau défi : <strong>Typeface design</strong>", avatar:"SA", avatarColor:"#728156" }
-];
-let fakeIndex = 0;
-
-function getUnreadCount() { return notifications.filter(n => n.unread).length; }
-
-function updateBadgeCount() {
-  const cnt = getUnreadCount();
-  const el = document.getElementById("notifCount");
-  el.textContent = cnt > 9 ? "9+" : cnt;
-  el.classList.toggle("visible", cnt > 0);
 }
 
-function getFilteredNotifs() {
-  if (currentTab === "unread")  return notifications.filter(n => n.unread);
-  if (currentTab === "badges")  return notifications.filter(n => n.type === "badge");
-  return notifications;
-}
+/* ══════════════════════════════════════════════════════
+   👤 PROFIL  → vote.php?action=participations&user_id=X
+   + calcul stats depuis submissions / classement
+══════════════════════════════════════════════════════ */
+async function loadProfile() {
+  try {
+    const res  = await fetch(`${API_BASE}?action=participations&user_id=${CURRENT_USER_ID}`);
+    const data = await res.json();
 
-function timeStr() {
-  const now = new Date();
-  return `${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
-}
+    // data = tableau de submissions avec : id, challenge_titre, nom, prenom, note_moyenne, nb_votes
+    const totalPart  = data.length;
+    const totalVotes = data.reduce((s, p) => s + (parseInt(p.nb_votes) || 0), 0);
+    const firstName  = data[0]?.prenom || "Utilisateur";
+    const lastName   = data[0]?.nom    || "";
 
-function renderNotifList() {
-  const list = document.getElementById("notifList");
-  const items = getFilteredNotifs();
-  if (!items.length) {
-    list.innerHTML = `
-      <div class="notif-empty">
-        <i class="bi bi-bell-slash"></i>
-        <div class="fw-bold" style="font-size:.85rem; color:var(--text-dark);">Aucune notification</div>
-        <div style="font-size:.75rem; margin-top:.3rem;">Vous êtes à jour !</div>
-      </div>`;
-    return;
+    document.getElementById("profileName").textContent  = `${firstName} ${lastName}`.trim();
+    document.getElementById("profileRole").textContent  = "Créateur · Niveau 3 🌿";
+    document.getElementById("statDefis").textContent    = totalPart;
+    document.getElementById("statPoints").textContent   = totalVotes;
+    document.getElementById("statVictoires").textContent = data.filter(p => parseFloat(p.note_moyenne) >= 4.5).length;
+
+    // XP bar
+    const xp     = totalVotes;
+    const xpMax  = 120;
+    const niveau = 3;
+    const pct    = Math.min(100, Math.round((xp / xpMax) * 100));
+    setTimeout(() => { document.getElementById("xpBarFill").style.width = pct + "%"; }, 300);
+    document.getElementById("xpText").textContent    = `${xp} / ${xpMax} XP`;
+    document.getElementById("xpNivCur").textContent  = `Niv. ${niveau}`;
+    document.getElementById("xpNivNext").textContent = `Niv. ${niveau + 1}`;
+  } catch(e) {
+    console.warn("Profil non disponible (PHP requis) :", e.message);
+    // Fallback démo
+    document.getElementById("profileName").textContent   = "Abdou";
+    document.getElementById("profileRole").textContent   = "Créateur · Niveau 3 🌿";
+    document.getElementById("statDefis").textContent     = "12";
+    document.getElementById("statPoints").textContent    = "84";
+    document.getElementById("statVictoires").textContent = "5";
+    setTimeout(() => { document.getElementById("xpBarFill").style.width = "70%"; }, 300);
+    document.getElementById("xpText").textContent    = "84 / 120 XP";
+    document.getElementById("xpNivCur").textContent  = "Niv. 3";
+    document.getElementById("xpNivNext").textContent = "Niv. 4";
   }
-  list.innerHTML = "";
-  items.forEach(n => {
-    const ts = typeStyle[n.type] || typeStyle.vote;
-    const div = document.createElement("div");
-    div.className = "notif-item" + (n.unread ? " unread" : "");
-    div.dataset.id = n.id;
-    div.innerHTML = `
-      <span class="notif-unread-dot"></span>
-      <div class="notif-avatar" style="background:${n.avatarColor}; font-size:${n.avatar.length > 2 ? "1.1rem" : ".75rem"};">${n.avatar}</div>
-      <div class="notif-body">
-        <div class="notif-text">
-          <span class="notif-type-icon" style="background:${ts.bg};color:${ts.color};"><i class="bi ${ts.icon}"></i></span>
-          ${n.text}
-        </div>
-        <div class="notif-time"><i class="bi bi-clock" style="font-size:.65rem;"></i>${n.time}</div>
-      </div>`;
-    div.addEventListener("click", () => markRead(n.id));
-    list.appendChild(div);
-  });
-}
-
-function markRead(id) {
-  const n = notifications.find(x => x.id === id);
-  if (n) { n.unread = false; }
-  updateBadgeCount();
-  renderNotifList();
-}
-
-function markAllRead() {
-  notifications.forEach(n => n.unread = false);
-  updateBadgeCount();
-  renderNotifList();
-}
-
-function switchTab(btn, tab) {
-  currentTab = tab;
-  document.querySelectorAll(".notif-tab").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-  renderNotifList();
-}
-
-function toggleNotifPanel() {
-  notifPanelOpen ? closeNotifPanel() : openNotifPanel();
-}
-
-function openNotifPanel() {
-  notifPanelOpen = true;
-  document.getElementById("notifPanel").classList.add("open");
-  document.getElementById("notifOverlay").classList.add("open");
-  renderNotifList();
-}
-
-function closeNotifPanel() {
-  notifPanelOpen = false;
-  document.getElementById("notifPanel").classList.remove("open");
-  document.getElementById("notifOverlay").classList.remove("open");
-}
-
-/* ── AJAX simulé : fetch() → setTimeout ── */
-function simulateAjaxFetch() {
-  const statusEl = document.getElementById("ajaxStatus");
-  statusEl.textContent = "Actualisation en cours…";
-
-  /* Simule un délai réseau (100–400 ms) */
-  setTimeout(() => {
-    const fakeNotif = fakeNewNotifs[fakeIndex % fakeNewNotifs.length];
-    fakeIndex++;
-
-    const newN = {
-      id: nextNotifId++,
-      type: fakeNotif.type,
-      unread: true,
-      text: fakeNotif.text,
-      time: "À l'instant (" + timeStr() + ")",
-      avatar: fakeNotif.avatar,
-      avatarColor: fakeNotif.avatarColor
-    };
-
-    notifications.unshift(newN);
-    updateBadgeCount();
-    if (notifPanelOpen) renderNotifList();
-
-    /* Toast */
-    showToast(fakeNotif.type, newN.text);
-
-    statusEl.textContent = "Dernière actualisation : " + timeStr();
-  }, 150 + Math.random() * 250);
-}
-
-/* Polling toutes les 18 secondes (simule un vrai fetch AJAX) */
-setInterval(simulateAjaxFetch, 18000);
-
-/* ══════════════════════════════════════════════════════
-   🎉 TOASTS
-══════════════════════════════════════════════════════ */
-function showToast(type, text) {
-  const ts = typeStyle[type] || typeStyle.vote;
-  const stack = document.getElementById("toastStack");
-  const toast = document.createElement("div");
-  toast.className = "notif-toast";
-  toast.innerHTML = `
-    <div class="toast-icon" style="background:${ts.bg}; color:${ts.color};">
-      <i class="bi ${ts.icon}"></i>
-    </div>
-    <div class="toast-body">
-      <div class="toast-title">Nouvelle notification</div>
-      <div class="toast-msg">${text.replace(/<[^>]+>/g, "")}</div>
-    </div>
-    <button class="toast-close" onclick="removeToast(this)"><i class="bi bi-x-lg"></i></button>`;
-  stack.appendChild(toast);
-
-  /* Suppression auto après 5s */
-  setTimeout(() => removeToast(toast.querySelector(".toast-close")), 5000);
-}
-
-function removeToast(btn) {
-  const toast = btn.closest(".notif-toast");
-  if (!toast) return;
-  toast.classList.add("removing");
-  toast.addEventListener("animationend", () => toast.remove(), { once: true });
 }
 
 /* ══════════════════════════════════════════════════════
-   🧩 CHALLENGES : filtres, grille
+   🏆 DÉFIS  → vote.php?action=classement
+   Les défis affichés = submissions avec leurs votes
+   (données réelles de la BDD)
 ══════════════════════════════════════════════════════ */
-const state = { category: "Toutes", query: "", sort: "popular" };
-const grid            = document.getElementById("grid");
-const categoriesList  = document.getElementById("categoriesList");
-const searchInput     = document.getElementById("searchInput");
-const sortSelect      = document.getElementById("sortSelect");
-const resetBtn        = document.getElementById("resetBtn");
-const resultsCount    = document.getElementById("resultsCount");
-const totalCount      = document.getElementById("totalCount");
-const emptyState      = document.getElementById("emptyState");
+let allChallenges = [];
 
-const parseDate = s => new Date(s + "T00:00:00");
-const getCategories = () => ["Toutes", ...new Set(challenges.map(c => c.category))].sort((a,b) => a==="Toutes"?-1:b==="Toutes"?1:a.localeCompare(b));
-const countByCategory = cat => cat==="Toutes" ? challenges.length : challenges.filter(c => c.category===cat).length;
-const iconMap = {
-  "Toutes":"bi-grid","Design":"bi-palette","Illustration":"bi-pen",
-  "Vidéo":"bi-camera-video","UI/UX":"bi-phone","Social":"bi-instagram"
-};
+async function loadChallenges() {
+  try {
+    const res  = await fetch(`${API_BASE}?action=classement`);
+    const data = await res.json();
+
+    // data = [ { id, challenge_titre, nom, prenom, note_moyenne, nb_votes }, ... ]
+    allChallenges = data.map((item, i) => ({
+      id:          item.id,
+      title:       item.challenge_titre || "Défi sans titre",
+      description: `Soumission de ${item.prenom || ""} ${item.nom || ""}`.trim(),
+      category:    item.categorie || "Design",   // si tu ajoutes la colonne dans ta BDD
+      createdAt:   item.created_at || new Date().toISOString().split("T")[0],
+      deadline:    item.deadline   || "2099-12-31",
+      popularity:  parseInt(item.nb_votes) || 0,
+      noteMoyenne: parseFloat(item.note_moyenne) || 0,
+      author:      `${item.prenom || ""} ${item.nom || ""}`.trim(),
+      icon:        "bi-star",
+      gradIndex:   (i % 6) + 1
+    }));
+
+    renderAll();
+  } catch(e) {
+    console.warn("Classement non disponible (PHP requis) :", e.message);
+    // Fallback données démo (compatibles avec le schéma BDD)
+    allChallenges = [
+      { id:1, title:"Logo minimaliste éco",    description:"Soumission de Ben Khalifa Abdou",    category:"Design",       createdAt:"2026-02-10", deadline:"2026-03-05", popularity:2, noteMoyenne:4.5, author:"Ben Khalifa Abdou",    icon:"bi-palette",      gradIndex:1 },
+      { id:2, title:"Logo minimaliste éco",    description:"Soumission de Hamdi Sara",           category:"Design",       createdAt:"2026-02-10", deadline:"2026-03-05", popularity:2, noteMoyenne:3.5, author:"Hamdi Sara",            icon:"bi-palette",      gradIndex:2 },
+      { id:3, title:"Affiche cyberpunk",        description:"Soumission de Mansour Yassine",     category:"Illustration", createdAt:"2026-02-20", deadline:"2026-03-12", popularity:2, noteMoyenne:4.5, author:"Mansour Yassine",       icon:"bi-pen",          gradIndex:3 }
+    ];
+    renderAll();
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   🗳️  VOTER  → POST vote.php  action=voter
+   Correspond EXACTEMENT à handleVoter() dans vote.php :
+     participation_id  (INT, ≥ 1)  ← submissions.id_submission
+     user_id           (INT)        ← user.id_user
+     note              (INT, 1-5)
+══════════════════════════════════════════════════════ */
+async function submitVote(submissionId, note, cardEl) {
+  const spinner = cardEl.querySelector(".vote-spinner");
+  const stars   = cardEl.querySelectorAll(".star");
+  if (spinner) spinner.classList.add("active");
+  stars.forEach(s => s.style.pointerEvents = "none");
+
+  try {
+    const res  = await fetch(API_BASE, {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({
+        action:           "voter",
+        participation_id: submissionId,   // ← submissions.id_submission
+        user_id:          CURRENT_USER_ID, // ← user.id_user (INT)
+        note:             note             // ← 1 à 5
+      })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      // Mettre à jour l'affichage
+      const avgEl = cardEl.querySelector(".vote-avg");
+      if (avgEl) avgEl.textContent = `⭐ ${data.note_moyenne} (${data.nb_votes} vote${data.nb_votes > 1 ? "s" : ""})`;
+
+      stars.forEach((s, i) => {
+        s.classList.toggle("voted", i < note);
+        s.classList.remove("active");
+        s.style.cursor = "default";
+      });
+
+      showToast("vote", `Vote (${note}★) enregistré pour la soumission #${submissionId}`);
+
+      // Mettre à jour les données locales
+      const ch = allChallenges.find(c => c.id === submissionId);
+      if (ch) {
+        ch.noteMoyenne = parseFloat(data.note_moyenne);
+        ch.popularity  = parseInt(data.nb_votes);
+      }
+    } else {
+      showToast("comment", data.message || "Impossible de voter.");
+      stars.forEach(s => s.style.pointerEvents = "auto");
+    }
+  } catch(e) {
+    showToast("comment", "Erreur réseau : " + e.message);
+    stars.forEach(s => s.style.pointerEvents = "auto");
+  } finally {
+    if (spinner) spinner.classList.remove("active");
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   🧩 FILTRES + GRILLE
+══════════════════════════════════════════════════════ */
+const state = { category:"Toutes", query:"", sort:"popular" };
+
+const grid           = document.getElementById("grid");
+const categoriesList = document.getElementById("categoriesList");
+const searchInput    = document.getElementById("searchInput");
+const sortSelect     = document.getElementById("sortSelect");
+const resetBtn       = document.getElementById("resetBtn");
+const resultsCount   = document.getElementById("resultsCount");
+const totalCount     = document.getElementById("totalCount");
+const emptyState     = document.getElementById("emptyState");
+
+const parseDate    = s => new Date((s || "2099-12-31") + "T00:00:00");
+const getCategories = () => ["Toutes", ...new Set(allChallenges.map(c => c.category))].sort((a,b) => a==="Toutes"?-1:b==="Toutes"?1:a.localeCompare(b));
+const countByCat    = cat => cat==="Toutes" ? allChallenges.length : allChallenges.filter(c => c.category===cat).length;
+const iconMap = { "Toutes":"bi-grid","Design":"bi-palette","Illustration":"bi-pen","Vidéo":"bi-camera-video","UI/UX":"bi-phone","Social":"bi-instagram" };
 
 function renderCategories() {
   categoriesList.innerHTML = "";
-  totalCount.textContent = challenges.length;
+  totalCount.textContent = allChallenges.length;
   getCategories().forEach(cat => {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -1441,7 +1006,7 @@ function renderCategories() {
     btn.innerHTML = `
       <div class="d-flex justify-content-between align-items-center">
         <span><i class="bi ${iconMap[cat]||'bi-tag'} me-2"></i>${cat}</span>
-        <span class="badge-total">${countByCategory(cat)}</span>
+        <span class="badge-total">${countByCat(cat)}</span>
       </div>`;
     btn.addEventListener("click", () => { state.category = cat; renderAll(); });
     categoriesList.appendChild(btn);
@@ -1449,22 +1014,36 @@ function renderCategories() {
 }
 
 function applyFilters() {
-  let items = [...challenges];
-  if (state.category !== "Toutes") items = items.filter(c => c.category===state.category);
+  let items = [...allChallenges];
+  if (state.category !== "Toutes") items = items.filter(c => c.category === state.category);
   const q = state.query.trim().toLowerCase();
-  if (q) items = items.filter(c => (c.title+" "+c.description+" "+c.author).toLowerCase().includes(q));
-  if (state.sort==="popular")  items.sort((a,b) => b.popularity-a.popularity);
-  if (state.sort==="newest")   items.sort((a,b) => parseDate(b.createdAt)-parseDate(a.createdAt));
-  if (state.sort==="deadline") items.sort((a,b) => parseDate(a.deadline)-parseDate(b.deadline));
+  if (q) items = items.filter(c => (c.title + " " + c.description + " " + c.author).toLowerCase().includes(q));
+  if (state.sort === "popular")  items.sort((a,b) => b.popularity - a.popularity);
+  if (state.sort === "newest")   items.sort((a,b) => parseDate(b.createdAt) - parseDate(a.createdAt));
+  if (state.sort === "deadline") items.sort((a,b) => parseDate(a.deadline)  - parseDate(b.deadline));
   return items;
 }
 
 function daysLeft(deadline) {
-  const diff = Math.ceil((parseDate(deadline)-new Date())/86400000);
-  if (diff<0)   return `<span style="color:#c0392b;">Expiré</span>`;
-  if (diff===0) return `<span style="color:#e67e22;">Aujourd'hui</span>`;
-  if (diff<=3)  return `<span style="color:#e67e22;">${diff}j restants</span>`;
+  const diff = Math.ceil((parseDate(deadline) - new Date()) / 86400000);
+  if (diff < 0)  return `<span style="color:#c0392b;">Expiré</span>`;
+  if (diff === 0) return `<span style="color:#e67e22;">Aujourd'hui</span>`;
+  if (diff <= 3)  return `<span style="color:#e67e22;">${diff}j restants</span>`;
   return `<span style="color:var(--text-muted);">${diff}j restants</span>`;
+}
+
+function starsHtml(submissionId, noteMoyenne, nbVotes) {
+  const avg = Math.round(noteMoyenne);
+  let stars = "";
+  for (let i = 1; i <= 5; i++) {
+    stars += `<span class="star${i <= avg ? " voted" : ""}" data-val="${i}" title="${i} étoile${i>1?"s":""}">★</span>`;
+  }
+  return `
+    <div class="vote-area">
+      <div class="star-rating" data-submission="${submissionId}">${stars}</div>
+      <span class="vote-avg">⭐ ${noteMoyenne || "—"} (${nbVotes} vote${nbVotes !== 1 ? "s" : ""})</span>
+      <span class="vote-spinner spinner-border spinner-border-sm text-success" style="width:.8rem;height:.8rem;" role="status"></span>
+    </div>`;
 }
 
 function renderGrid(items) {
@@ -1472,23 +1051,24 @@ function renderGrid(items) {
   items.forEach((item, i) => {
     const col = document.createElement("div");
     col.className = "col-12 col-md-6 col-xl-4";
-    col.style.animationDelay = (i*0.05)+"s";
+    col.style.animationDelay = (i * 0.05) + "s";
     col.innerHTML = `
-      <div class="challenge-card">
-        <div class="challenge-cover">
+      <div class="challenge-card" data-id="${item.id}">
+        <div class="challenge-cover cover-grad-${item.gradIndex}">
           <i class="bi ${item.icon||'bi-star'} cover-icon"></i>
         </div>
         <div class="p-3">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <span class="badge-cat">${item.category}</span>
             <span class="muted small" style="font-size:.78rem;">
-              <i class="bi bi-star-fill me-1" style="color:var(--c5);"></i>${item.popularity}
+              <i class="bi bi-hand-thumbs-up me-1" style="color:var(--c5);"></i>${item.popularity} votes
             </span>
           </div>
           <div class="fw-bold mb-1" style="color:var(--c7);font-size:.94rem;font-family:'DM Sans',sans-serif;">${item.title}</div>
-          <div class="muted small mb-3" style="font-size:.81rem;line-height:1.5;">${item.description}</div>
-          <hr style="border-color:var(--border-soft);opacity:1;margin:.5rem 0;">
-          <div class="d-flex justify-content-between align-items-center mt-2">
+          <div class="muted small mb-2" style="font-size:.81rem;line-height:1.5;">${item.description}</div>
+          ${starsHtml(item.id, item.noteMoyenne, item.popularity)}
+          <hr style="border-color:var(--border-soft);opacity:1;margin:.6rem 0 .4rem;">
+          <div class="d-flex justify-content-between align-items-center mt-1">
             <div class="small" style="line-height:1.7;">
               <div class="muted"><i class="bi bi-person me-1" style="color:var(--c9);"></i>${item.author}</div>
               <div><i class="bi bi-clock me-1" style="color:var(--c9);"></i>${daysLeft(item.deadline)}</div>
@@ -1499,9 +1079,30 @@ function renderGrid(items) {
           </div>
         </div>
       </div>`;
-    col.querySelector("button").addEventListener("click", e => {
-      alert("Ouvrir le défi ID: " + e.currentTarget.getAttribute("data-id") + " (bientôt : page PHP 🌿)");
+
+    /* ── Événements étoiles ── */
+    const card = col.querySelector(".challenge-card");
+    col.querySelectorAll(".star").forEach(star => {
+      // Hover
+      star.addEventListener("mouseenter", () => {
+        const val = parseInt(star.dataset.val);
+        col.querySelectorAll(".star").forEach((s, idx) => s.classList.toggle("active", idx < val));
+      });
+      star.addEventListener("mouseleave", () => {
+        col.querySelectorAll(".star").forEach(s => s.classList.remove("active"));
+      });
+      // Click → POST vote.php
+      star.addEventListener("click", () => {
+        if (star.classList.contains("voted")) return; // déjà voté
+        submitVote(item.id, parseInt(star.dataset.val), card);
+      });
     });
+
+    /* ── Bouton Voir ── */
+    col.querySelector(".btn-voir").addEventListener("click", () => {
+      alert(`Ouvrir la soumission ID: ${item.id} — "${item.title}" (page PHP à venir 🌿)`);
+    });
+
     grid.appendChild(col);
   });
 }
@@ -1513,30 +1114,154 @@ function renderAll() {
   const items = applyFilters();
   resultsCount.textContent = items.length;
   renderGrid(items);
-  emptyState.classList.toggle("d-none", items.length!==0);
+  emptyState.classList.toggle("d-none", items.length !== 0);
 }
 
-/* ── Événements ── */
+/* ══════════════════════════════════════════════════════
+   🔔 NOTIFICATIONS (mock — à remplacer par une vraie API)
+══════════════════════════════════════════════════════ */
+let notifications = [
+  { id:1, type:"vote",    unread:true,  text:"<strong>Yassine</strong> a voté pour ta soumission", time:"Il y a 2 min", avatar:"YA", avatarColor:"#375534" },
+  { id:2, type:"comment", unread:true,  text:"<strong>Sara</strong> a commenté : « Super travail ! »", time:"Il y a 8 min", avatar:"SA", avatarColor:"#6b9071" },
+  { id:3, type:"badge",   unread:true,  text:"🏅 Badge <strong>Pionnier</strong> débloqué !", time:"Il y a 15 min", avatar:"🏅", avatarColor:"#c8960c" },
+  { id:4, type:"challenge",unread:false,text:"Nouveau défi publié par <strong>Omar</strong>", time:"Il y a 30 min", avatar:"OM", avatarColor:"#88976c" },
+  { id:5, type:"vote",    unread:false, text:"<strong>Inès</strong> a voté pour ton défi", time:"Il y a 1h", avatar:"IN", avatarColor:"#98a77c" }
+];
+let currentTab = "all", notifPanelOpen = false, nextNotifId = 100;
+
+const typeStyle = {
+  vote:      { icon:"bi-hand-thumbs-up-fill", bg:"#e8f4ff", color:"#1a6fc4" },
+  comment:   { icon:"bi-chat-dots-fill",      bg:"#f0f8e8", color:"#375534" },
+  badge:     { icon:"bi-award-fill",          bg:"#fffae8", color:"#c8960c" },
+  challenge: { icon:"bi-trophy-fill",         bg:"#f8eeff", color:"#7c28c8" }
+};
+
+const fakeNewNotifs = [
+  { type:"vote",     text:"<strong>Hamza</strong> a voté pour ta soumission sur <strong>Logo éco</strong>",    avatar:"HA", avatarColor:"#375534" },
+  { type:"comment",  text:"<strong>Meriem</strong> a répondu : « Bravo, continue ! »",                         avatar:"ME", avatarColor:"#6b9071" },
+  { type:"badge",    text:"🎖️ Tu approches du badge <strong>Très actif</strong> (8/10 participations) !",     avatar:"🎖️", avatarColor:"#c8960c" },
+  { type:"challenge",text:"<strong>Sara</strong> vient de publier un nouveau défi",                             avatar:"SA", avatarColor:"#728156" }
+];
+let fakeIndex = 0;
+
+function getUnreadCount() { return notifications.filter(n => n.unread).length; }
+function updateBadgeCount() {
+  const cnt = getUnreadCount();
+  const el  = document.getElementById("notifCount");
+  el.textContent = cnt > 9 ? "9+" : cnt;
+  el.classList.toggle("visible", cnt > 0);
+}
+function getFilteredNotifs() {
+  if (currentTab === "unread") return notifications.filter(n => n.unread);
+  if (currentTab === "badges") return notifications.filter(n => n.type === "badge");
+  return notifications;
+}
+function timeStr() {
+  const n = new Date();
+  return `${String(n.getHours()).padStart(2,"0")}:${String(n.getMinutes()).padStart(2,"0")}`;
+}
+function renderNotifList() {
+  const list  = document.getElementById("notifList");
+  const items = getFilteredNotifs();
+  if (!items.length) {
+    list.innerHTML = `<div class="notif-empty"><i class="bi bi-bell-slash"></i><div class="fw-bold" style="font-size:.85rem;color:var(--text-dark);">Aucune notification</div><div style="font-size:.75rem;margin-top:.3rem;">Vous êtes à jour !</div></div>`;
+    return;
+  }
+  list.innerHTML = "";
+  items.forEach(n => {
+    const ts  = typeStyle[n.type] || typeStyle.vote;
+    const div = document.createElement("div");
+    div.className = "notif-item" + (n.unread ? " unread" : "");
+    div.dataset.id = n.id;
+    div.innerHTML = `
+      <span class="notif-unread-dot"></span>
+      <div class="notif-avatar" style="background:${n.avatarColor};font-size:${n.avatar.length > 2 ? "1.1rem" : ".75rem"};">${n.avatar}</div>
+      <div class="notif-body">
+        <div class="notif-text">
+          <span class="notif-type-icon" style="background:${ts.bg};color:${ts.color};"><i class="bi ${ts.icon}"></i></span>${n.text}
+        </div>
+        <div class="notif-time"><i class="bi bi-clock" style="font-size:.65rem;"></i>${n.time}</div>
+      </div>`;
+    div.addEventListener("click", () => markRead(n.id));
+    list.appendChild(div);
+  });
+}
+function markRead(id) {
+  const n = notifications.find(x => x.id === id);
+  if (n) n.unread = false;
+  updateBadgeCount(); renderNotifList();
+}
+function markAllRead() {
+  notifications.forEach(n => n.unread = false);
+  updateBadgeCount(); renderNotifList();
+}
+function switchTab(btn, tab) {
+  currentTab = tab;
+  document.querySelectorAll(".notif-tab").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  renderNotifList();
+}
+function toggleNotifPanel() { notifPanelOpen ? closeNotifPanel() : openNotifPanel(); }
+function openNotifPanel()  { notifPanelOpen = true;  document.getElementById("notifPanel").classList.add("open");    document.getElementById("notifOverlay").classList.add("open");    renderNotifList(); }
+function closeNotifPanel() { notifPanelOpen = false; document.getElementById("notifPanel").classList.remove("open"); document.getElementById("notifOverlay").classList.remove("open"); }
+
+function simulateAjaxFetch() {
+  const statusEl = document.getElementById("ajaxStatus");
+  statusEl.textContent = "Actualisation en cours…";
+  setTimeout(() => {
+    const fake = fakeNewNotifs[fakeIndex++ % fakeNewNotifs.length];
+    const newN = { id:nextNotifId++, type:fake.type, unread:true, text:fake.text, time:"À l'instant (" + timeStr() + ")", avatar:fake.avatar, avatarColor:fake.avatarColor };
+    notifications.unshift(newN);
+    updateBadgeCount();
+    if (notifPanelOpen) renderNotifList();
+    showToast(fake.type, newN.text);
+    statusEl.textContent = "Dernière actualisation : " + timeStr();
+  }, 150 + Math.random() * 250);
+}
+setInterval(simulateAjaxFetch, 18000);
+
+/* ════ TOASTS ════ */
+function showToast(type, text) {
+  const ts    = typeStyle[type] || typeStyle.vote;
+  const stack = document.getElementById("toastStack");
+  const toast = document.createElement("div");
+  toast.className = "notif-toast";
+  toast.innerHTML = `
+    <div class="toast-icon" style="background:${ts.bg};color:${ts.color};"><i class="bi ${ts.icon}"></i></div>
+    <div class="toast-body">
+      <div class="toast-title">Nouvelle notification</div>
+      <div class="toast-msg">${text.replace(/<[^>]+>/g,"")}</div>
+    </div>
+    <button class="toast-close" onclick="removeToast(this)"><i class="bi bi-x-lg"></i></button>`;
+  stack.appendChild(toast);
+  setTimeout(() => removeToast(toast.querySelector(".toast-close")), 5000);
+}
+function removeToast(btn) {
+  const toast = btn.closest(".notif-toast");
+  if (!toast) return;
+  toast.classList.add("removing");
+  toast.addEventListener("animationend", () => toast.remove(), { once:true });
+}
+
+/* ════ ÉVÉNEMENTS FILTRES ════ */
 searchInput.addEventListener("input",  e => { state.query = e.target.value; renderAll(); });
 sortSelect.addEventListener("change",  e => { state.sort  = e.target.value; renderAll(); });
 resetBtn.addEventListener("click", () => {
-  state.category="Toutes"; state.query=""; state.sort="popular";
+  state.category = "Toutes"; state.query = ""; state.sort = "popular";
   renderAll(); searchInput.focus();
 });
 document.addEventListener("keydown", e => {
-  if (e.key==="/" && document.activeElement!==searchInput) { e.preventDefault(); searchInput.focus(); }
-  if (e.key.toLowerCase()==="n" && document.activeElement.tagName!=="INPUT") { e.preventDefault(); toggleNotifPanel(); }
+  if (e.key === "/" && document.activeElement !== searchInput) { e.preventDefault(); searchInput.focus(); }
+  if (e.key.toLowerCase() === "n" && document.activeElement.tagName !== "INPUT") { e.preventDefault(); toggleNotifPanel(); }
 });
 
-/* ── Init ── */
-renderAll();
-renderBadges();
-updateBadgeCount();
-
-/* Toast de bienvenue au chargement */
-setTimeout(() => {
-  showToast("badge", "Bienvenue Abdou ! Tu as 3 nouvelles notifications 🔔");
-}, 1200);
+/* ════ INIT ════ */
+(async () => {
+  renderBadges();
+  updateBadgeCount();
+  await Promise.all([loadStats(), loadProfile(), loadChallenges()]);
+  setTimeout(() => showToast("badge", "Bienvenue ! Tu as 3 nouvelles notifications 🔔"), 1200);
+})();
 </script>
 </body>
 </html>
