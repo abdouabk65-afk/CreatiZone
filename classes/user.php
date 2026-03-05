@@ -4,7 +4,7 @@
     private $conn;
     private $table='user';
     //les attributs de la table user dans la bd
-    public $id;
+    public $id_user;
     public $nom;
     public $prenom;
     public $email;
@@ -28,14 +28,14 @@
         $stmt->bindParam(":motdepasse", $mphashee);
 
         if($stmt->execute()) {
-            $this->id = $this->conn->lastInsertId();
+            $this->id_user = $this->conn->lastInsertId();
             return true;
         }
         return false;
     } 
         //fonction getbyEmail utlisee dans la connexion dans le form login
         public function getByEmail() {
-        $query = "SELECT id, nom, prenom, email, motdepasse 
+        $query = "SELECT id_user, nom, prenom, email, motdepasse 
                   FROM " . $this->table . " 
                   WHERE email = :email 
                   LIMIT 0,1";
@@ -48,7 +48,7 @@
         }
         //fonction emailExists pour verifier si un autre utlisateur est connecte avec le meme email utlise dans l'inscription 
         public function emailExists() {
-          $query = "SELECT id FROM " . $this->table . " WHERE email = :email LIMIT 0,1";
+          $query = "SELECT id_user FROM " . $this->table . " WHERE email = :email LIMIT 0,1";
           $stmt = $this->conn->prepare($query);
           $stmt->bindParam(":email", $this->email);
           $stmt->execute();
@@ -57,7 +57,7 @@
     }
     //fonction usernameExists pour verifier que chaque utlisateur a un nom unique
     public function usernameExists() {
-    $query = "SELECT id FROM " . $this->table . " WHERE nom = :nom AND prenom = :prenom LIMIT 0,1";
+    $query = "SELECT id_user FROM " . $this->table . " WHERE nom = :nom AND prenom = :prenom LIMIT 0,1";
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(":nom", $this->nom);
     $stmt->bindParam(":prenom", $this->prenom);
@@ -65,6 +65,20 @@
     
     return $stmt->rowCount() > 0;
 }
- }
+  public function deconnexion() {
+    // Démarrer la session si elle ne l'est pas déjà
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    // Détruire toutes les variables de session
+    $_SESSION = array();
+   // Détruire la session
+    session_destroy();
+
+    return true;
+   }
+}
  
+?>
+ } 
 ?>
