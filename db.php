@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'defi_db';
+$dbname = 'challenge_hub';
 $user = 'root';         // votre user MySQL
 $pass = '';             // votre mot de passe
 

@@ -12,7 +12,7 @@
 
 // ─── CONFIG BDD ──────────────────────────────────────────────────────────────
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'defi_db');
+define('DB_NAME', 'challenge_hub');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
